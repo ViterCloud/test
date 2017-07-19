@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type='text/css' href="__CSS__/bootstrap.min.css" >
+<link rel="stylesheet" type='text/css' href="__CSS__/public.css">
+<link rel="stylesheet" type='text/css' href="__CSS__/owner.css">
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<script type="text/javascript" src="__JS__/bootstrap.min.js"></script>
+<title>车主页面</title>
+</head>
+<body background="__IMG__/background.jpg">
+<div id="head">
+<div id="logo">
+<img src="__IMG__/logo.png"/>
+</div>
+<div id="ti">
+<img src="__IMG__/title.png"/>
+</div>
+<div id="time">{:ptime();}</div>
+</div>
+<div id="big">
+<div id="left">
+<div id="top">
+<form action="__URL__/find" method="post">
+<div class="input-group">
+   <span class="input-group-btn">
+      <button type="submit" name="bt" class="btn btn-default" value="find">
+                查找
+      </button>
+   </span>
+   <input type="text" class="form-control" placeholder="请输入查找的内容" name="find">
+</div>
+</form>
+</div>
+<div id="list" class="round">
+	<volist name="park" id="vo">
+		<div id="leftlist">
+			<a id="name" {$a_link} href="__URL__/park/id/{$vo.id}">{$vo.name}</a>
+			<div id="um">
+			<p>价格:</p><h3>{$vo.price}￥/h</h3>
+			<p>车位数:</p><h3>{$vo.num}</h3>
+			<p>地址:</p><h2>{$vo.parkplace}</h2>
+			<p>场主:</p><h2>{$vo.owner}</h2>
+			<p>电话:</p><h2>{$vo.phone}</h2>
+			</div>
+		</div>
+	</volist>
+<div class="null"></div>
+</div>
+</div>
+<div id="right">
+	<p>用户信息</p>
+	<ul id="message">
+		<li><p>账号:</p><h1>{$user.number}</h1></li>
+		<li><p>用户名:</p><h1>{$user.name}</h1></li>
+		<li><p>联系方式:</p><h1>{$user.phone}</h1></li>
+		<li><p>身份:</p><h1>{$user.root|proot}</h1></li>
+		<li><p>登记车牌:</p>
+			<h1 class="{$cs}">
+				<form action="__URL__/carid" method="post">
+					<input type="text" name="carid"/>
+					<input type="hidden" name="username" value="{$user.name}"/>
+					<input type="hidden" name="style" value="C4"/>
+					<button type="submit" class="hidden"></button>
+				</form>
+			</h1>
+			<h1>
+				{$car.num}
+			</h1>
+		</li>
+		<li>
+			<h1 class="{$date.stbox}">
+				<span>状态:</span><b>{$date.state}</b>
+				<span>车场:</span><b>{$date.park}停车场</b>
+				<span>结束时间:</span><b>{$date.end}</b>
+			</h1>
+		</li>
+	</ul>
+</div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+	<div class="navbar-header">
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	   </div>
+   <div class="navbar-header">
+      <a class="navbar-brand">Parking</a>
+   </div>
+   <div>
+      <ul class="nav navbar-nav">
+         <li ><a href="{:purl(index)}">主页</a></li>
+         <li><a href="{:purl(owner)}">停车</a></li>
+         <li><a href="{:purl(place)}">车场</a></li>
+         <li><a href="{:purl(about)}">关于我们</a></li>
+      </ul>
+   </div>
+</nav>
+</body>
+</html>

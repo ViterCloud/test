@@ -1,0 +1,110 @@
+<html>
+    <head>
+    <title>Parking Backstage</title>
+    <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+    <link href="__CSS__/index.css" rel="stylesheet">
+    <script src="__JS__/jquery.min.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    </head>
+    <body background='images/backstage.jpg'>
+        <div id="top">
+        <h1>后台管理系统</h1>
+        <p>{:ptime();}</p>
+        </div>
+        <div id="list">
+            <a href="__URL__/index/table/user" class="btn btn-primary btn-lg" role="button">用户信息管理</a>
+            <a href="__URL__/index/table/car" class="btn btn-primary btn-lg" role="button">车辆信息管理</a>
+            <a href="__URL__/index/table/parking" class="btn btn-primary btn-lg" role="button">停车场信息管理</a>
+        </div>
+        <div id="main">
+        <a type="button" href="{:U('Admin/Add/index')}" class="btn btn-default btn-lg hbtn add" target="frame" data-toggle="modal" data-target="#myModal">增加</a>
+        <form action="__URL__/handle" method="post">
+        <div id="handle" class="btn-group"> 
+        <div class="hbtn kong"></div>
+        <button type="submit" name="bt" class="btn btn-default" value="delete">删除</button>
+        <div class="row" id="findbox">
+         <div class="col-lg-6">
+            <div class="input-group">
+               <span class="input-group-btn">
+                  <button type="submit" name="bt" class="btn btn-default" value="find">
+                              查找
+                  </button>
+               </span>
+               <input type="text" class="form-control" placeholder="请输入查找的内容" name="f_name">
+            </div>
+         </div>
+        </div>
+        </div>
+        <table class="table table-striped">
+            <tr> 
+            <th >
+                <p>全选</p><input type="checkbox" id="cb_all" onclick="checkAll(this)"/>
+            </th>
+                <foreach name="key" item="vo" empty=" ">
+                <th>{$vo}</th>
+                </foreach>
+                <th>修改</th>
+                </tr>
+                <foreach name="message" item="vo">
+                <tr>
+                    <td><input type='checkbox' name='item[]' value="{$vo.id}" onclick='updateCheck()'/></td>
+                    <foreach name="vo" item="value" empty=" ">
+                    <td>{$value}</td>
+                    </foreach>
+                    <td><a role='button' href="__URL__/update/id/{$vo.id}" class='btn btn-default'   target='frame' data-toggle="modal" data-target="#myModal">修改</a>
+                 </td>
+                 </tr>
+                 </foreach>
+        </table>
+        <!-- 模态框（Modal） -->
+        </form>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		   <div class="modal-dialog">
+		      <div class="modal-content">
+		         <div class="modal-body">
+		            	<iframe name="frame" id="frame"></iframe>
+		         </div>
+		         <div class="modal-footer">
+		            <button type="button" class="btn btn-default" data-dismiss="modal">
+		            </button>
+		         </div>
+		      </div>
+		</div>
+		</div>
+    	   <div id="page">
+        	   <ul class="pagination">
+                  <li><a href="{$map.front}">&laquo;</a></li>
+                  <li class="{$map.firsts}"><a  href="{$map.first}">{$map.firstv}</a></li>
+                  <li class="{$map.seconds}"><a  href="{$map.second}">{$map.secondv}</a></li>
+                  <li class="{$map.thirds}"><a  href="{$map.third}">{$map.thirdv}</a></li>
+                  <li><a href="{$map.back}">&raquo;</a></li>
+                  <li class="page"><div>总{$page.page}页/{$page.count}记录</div></li>
+                </ul>
+    	   </div>
+        </div>
+	<div id="fade" class="black_overlay"></div>
+	<div id="footer">
+	版 权 所 有 © viter_yun
+	</div>
+    </body>
+</html>
+<script>
+ function checkAll(cbox_all){
+        var cboxes=document.getElementsByName("item[]");
+        for(var i=0;i<cboxes.length;i++)
+            cboxes[i].checked=cbox_all.checked;
+    }
+
+    function updateCheck(){
+        var cboxes=document.getElementsByName("item[]");
+        var counter=0;
+        for(var i=0;i<cboxes.length;i++)
+            if(cboxes[i].checked==true)
+                counter++;
+        var cbox_all=document.getElementById("cb_all");
+        if(counter==<?=num?>)
+            cbox_all.checked=true;
+        else
+            cbox_all.checked=false;
+    }
+</script>

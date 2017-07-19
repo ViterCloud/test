@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+<link href="__CSS__/index.css" rel="stylesheet">
+<link href="__CSS__/public.css" rel="stylesheet">
+<link href="__CSS__/add.css" rel="stylesheet">
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<title>ADD</title>
+</head>
+<body>
+<div id="big" class="form-horizontal" role="form">
+<form action="__URL__/add/id/{$id}" method="post" target="frame" name="a" class="form-signin">
+<div id="left">
+	<foreach name="keyname" item="value">
+		<label class="text-login key round">{$value}</label>
+	</foreach>
+</div>
+<div id="right">
+	<volist name="date" id="val" >
+		<input type="text" name="{$key}" value="{$val}" class="form-control value round2"/>
+	</volist>
+</div>
+<div>
+<button type="submit" id="bt" class="round">提交</button>
+</div>
+</form>
+</div>
+</body>
+</html>

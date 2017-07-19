@@ -1,0 +1,101 @@
+@CHARSET "UTF-8";
+body,div,input,form,button{
+	padding:0px;
+	margin:0px;
+	border-style:none;
+}
+body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #CCC;
+      }
+a{
+	color:#08c;
+	text-decoration:none;
+	}
+.form-signin {
+        max-width: 60%;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+	.form-signin input[type="text"],.form-signin input[type="password"]{
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+	.text-login{
+		width:150px;
+	  	text-align:right;
+	  	line-height:1;
+	  	font-size:17px;
+	  	font-family:"黑体";
+	  	float:left;
+		color:#711;
+	  }
+	  .text-infor{
+		width:200px;
+	  	height:36px;
+	  	text-align:left;
+	  	margin-top:10px;
+	  	margin-bottom:15px;
+	  	line-height:36px;
+	  	font-size:12px;
+	  	font-family:"黑体";
+	  	float:left;
+		color:#9c9c9c;
+	  }
+	  .text-infor span{
+	  	width:40px;
+	  	height:36px;
+		color:red;
+	  	font-size:17px;
+	  	font-weight:700;
+	  	text-align:right;
+	  	line-height:36px;
+	  }
+	  #register-logo{
+		font-family:"幼圆";
+	  	color:#714;
+	  	text-align:center;
+	  	lineheight:1;
+	  	margin:5px auto 15px;
+	  }
+	  #button-submit{
+		margin:5px 250px;
+	  }
+	  #massage-input{
+		float:left;
+	  }
+	  #infornmation{
+		width:200px;
+	  	height:255px;
+	  	margin:0px auto 0px 17px;
+	  	float:left;
+	  }
+	  #bottom{
+		float:right;
+	  	color:#08c;
+	  	font-size:15px;
+	  	margin-right:20px;
+	  }
+	  .return{
+		margin-right:12px;
+	  }
+	  .cb{
+		margin-top:20px;
+	  }
+	  #cb{
+		margin-top:20px;
+	  }
+	  .ip{
+		margin-top:10px;
+	  }

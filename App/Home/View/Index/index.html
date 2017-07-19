@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type='text/css' href="__CSS__/bootstrap.min.css" >
+<link rel="stylesheet" type='text/css' href="__CSS__/public.css">
+<link rel="stylesheet" type='text/css' href="__CSS__/index.css">
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<script type="text/javascript" src="__JS__/bootstrap.min.js"></script>
+<title>Parking主页</title>
+</head>
+<body>
+<div id="head">
+<div id="logo">
+<img src="__IMG__/logo.png"/>
+</div>
+<div id="ti">
+<img src="__IMG__/title.png"/>
+</div>
+<div id="time">{:ptime();}</div>
+</div>
+<div id="big">
+<div>
+</div>
+<div id="center">
+<div id="image">
+<div id="myCarousel" class="carousel slide">
+   <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+   </ol>   
+   <div class="carousel-inner">
+      <div class="item active">
+         <img src="__IMG__/park1.jpg" alt="First slide">
+      </div>
+      <div class="item">
+         <img src="__IMG__/park2.jpg" alt="Second slide">
+      </div>
+      <div class="item">
+         <img src="__IMG__/park3.jpg" alt="Third slide">
+      </div>
+   </div>
+   <a class="carousel-control left" href="#myCarousel" 
+      data-slide="prev"></a>
+   <a class="carousel-control right" href="#myCarousel" 
+      data-slide="next"></a>
+</div> 
+
+</div>
+<div class="login" id="{$style.img}" onmouseove="Text()">
+<img src="__IMG__/park.jpg"/>
+</div>
+<div class="login" id="lo">
+<form class="form-signin round" action="__URL__/login" method="post" id="border">
+	<p class="null"></p>
+	<span class="input-group-addon" id="z" for="username">用户名</span>
+		<input type="text" class="form-control" placeholder="UserName" name="number"/>
+	<p class="null"></p>
+	<span class="input-group-addon" for="password">密码</span>
+		<input type="password" class="form-control" placeholder="Password" name="password"/>
+	<p class="null"></p>
+	<span class="go">前往<a href="{:U('Home/Register/index');}">注册</a></span>
+		<input type="submit" class="btn btn-default" id="submit" value="登录"/>
+</form>
+</div>
+<div class="{$style.act} round">
+	<p class="user pm">欢迎您:{$userdate}</p>
+	<p class="out pm"><a href="__URL__/logout">退出登录</a></p>
+</div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+	<div class="navbar-header">
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	   </div>
+   <div class="navbar-header">
+      <a class="navbar-brand">Parking</a>
+   </div>
+   <div>
+      <ul class="nav navbar-nav">
+         <li ><a href="{:purl(index)}">主页</a></li>
+         <li><a href="{:purl(owner)}">停车</a></li>
+         <li><a href="{:purl(place)}">车场</a></li>
+         <li><a href="{:purl(about)}">关于我们</a></li>
+      </ul>
+   </div>
+</nav>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+        $(document).ready(
+        	function(){
+        		$("#lo").hide();
+        		$("#dimg").mouseover(
+        			function(){
+        				$("#lo").show();
+        				$("#dimg").hide();
+        			}		
+        		);
+        		$("#lo").mouseout(
+        			function(){
+        				$("#lo").hide();
+        				$("#dimg").show();
+        			}		
+        		)
+        	}	
+        )
+    </script>

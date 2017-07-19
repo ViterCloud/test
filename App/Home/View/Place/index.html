@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type='text/css' href="__CSS__/bootstrap.min.css" >
+<link rel="stylesheet" type='text/css' href="__CSS__/public.css">
+<link rel="stylesheet" type='text/css' href="__CSS__/place.css">
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<script type="text/javascript" src="__JS__/bootstrap.min.js"></script>
+<title>车场主页面</title>
+</head>
+<body>
+<div id="head">
+<div id="logo">
+<img src="__IMG__/logo.png"/>
+</div>
+<div id="ti">
+<img src="__IMG__/title.png"/>
+</div>
+<div id="time">{:ptime();}</div>
+</div>
+<div id="big">
+<div id="left" class="round">
+<div id="title">
+	<p>车场名:</p><h2>{$pdate.name}</h2>
+	<p>状态:</p><h3>已停车：&nbsp;&nbsp;<img src="__IMG__/ing.png"/></h3>
+	<h3>未停车：&nbsp;&nbsp;<img src="__IMG__/no.png"/></h3>
+</div>
+<div id="pictrue">
+<foreach name="place" item="vo">
+	<div class="car">
+		<img src="__IMG__/{$vo}.png"/>
+	</div>
+</foreach>
+</div>
+</div>
+<div id="right" class="round">
+	<h3>用户信息</h3>
+	<ul id="pm">
+		<li><p>账号:</p><h1>{$user.number}</h1></li>
+		<li><p>用户名:</p><h1>{$user.name}</h1></li>
+		<li><p>联系方式:</p><h1>{$user.phone}</h1></li>
+		<li><p>身份:</p><h1>{$user.root|proot}</h1></li>
+		<li><p>车场名:</p><h1>{$pdate.name}</h1></li>
+		<li><p>车场地址:</p><h1>{$pdate.parkplace}</h1></li>
+	</ul>
+</div>
+</div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+	<div class="navbar-header">
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	   </div>
+   <div class="navbar-header">
+      <a class="navbar-brand">Parking</a>
+   </div>
+   <div>
+      <ul class="nav navbar-nav">
+         <li ><a href="{:purl(index)}">主页</a></li>
+         <li><a href="{:purl(owner)}">停车</a></li>
+         <li><a href="{:purl(place)}">车场</a></li>
+         <li><a href="{:purl(about)}">关于我们</a></li>
+      </ul>
+   </div>
+</nav>
+</body>
+</html>

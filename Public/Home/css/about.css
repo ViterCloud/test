@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+H1{
+	width:1000px;
+	height:700px;
+	margin:10px auto;
+	border:3px solid #aaa;
+	text-align:center;
+	line-height:1.4;
+}

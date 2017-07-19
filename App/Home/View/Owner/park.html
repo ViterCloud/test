@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type='text/css' href="__CSS__/bootstrap.min.css" >
+<link rel="stylesheet" type='text/css' href="__CSS__/public.css">
+<link rel="stylesheet" type='text/css' href="__CSS__/owner.css">
+<link rel="stylesheet" type='text/css' href="__CSS__/park.css">
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<script type="text/javascript" src="__JS__/bootstrap.min.js"></script>
+<title>车主页面</title>
+</head>
+<body background="__IMG__/background.jpg">
+<div id="head">
+<div id="logo">
+<img src="__IMG__/logo.png"/>
+</div>
+<div id="ti">
+<img src="__IMG__/title.png"/>
+</div>
+<div id="time">{:ptime();}</div>
+</div>
+<div id="big">
+<div id="left" class="leftbox">
+	<div id="leftlist" class="tm">
+		<div id="name">{$park.name}</div>
+		<div id="um">
+		<p>价格:</p><h3>{$park.price}￥/h</h3>
+		<p>车位数:</p><h3>{$park.num}</h3>
+		<p>地址:</p><h2>{$park.parkplace}</h2>
+		<p>场主:</p><h2>{$park.owner}</h2>
+		<p>电话:</p><h2>{$park.phone}</h2>
+		</div>
+	</div>
+	<div id="rightlist">
+	<form action="__URL__/addrecord" method="post">
+		<div id="rname"><button type="submit">停车</button></div>
+		<div id="rum">
+		<p>车牌:</p><h2>{$car.num}</h2>
+		<p>停车时长:</p>
+			<h2>
+				<select name="time" class="round2" id="check">
+					<option value="1">1H</option>
+					<option value="2">2H</option>
+					<option value="3">3H</option>
+					<option value="4">4H</option>
+					<option value="5">5H</option>
+					<option value="6">6H</option>
+				</select>
+			</h2>
+		<p>电话:</p><h2>{$user.phone}</h2>
+		<p>&nbsp;</p>
+		<h2>
+			<input type="hidden" name="parkid" value="{$park.id}"/>
+			<input type="hidden" name="carnum" value="{$car.num}"/>
+			<button type="submit" class="hidden"></button>
+		</h2>
+		</div>
+		</form>
+	</div>
+</div>
+<div id="right">
+	<p>用户信息</p>
+			<ul id="message">
+				<li><p>账号:</p><h1>{$user.number}</h1></li>
+				<li><p>用户名:</p><h1>{$user.name}</h1></li>
+				<li><p>联系方式:</p><h1>{$user.phone}</h1></li>
+				<li><p>身份:</p><h1>{$user.root|proot}</h1></li>
+			</ul>
+		</div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+	<div class="navbar-header">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	   </div>
+   <div class="navbar-header">
+      <a class="navbar-brand">Parking</a>
+   </div>
+   <div>
+      <ul class="nav navbar-nav">
+         <li ><a href="{:purl(index)}">主页</a></li>
+         <li><a href="{:purl(owner)}">停车</a></li>
+         <li><a href="{:purl(place)}">车场</a></li>
+         <li><a href="{:purl(about)}">关于我们</a></li>
+      </ul>
+   </div>
+</nav>
+</body>
+</html>

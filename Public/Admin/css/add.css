@@ -1,0 +1,54 @@
+@CHARSET "UTF-8";
+body,div,form,h2{
+	padding:0;margin:0;border:0;
+}
+#big{
+	width:100%;
+	height:450px;
+	padding:50px;
+}
+#left{
+	width:30%;
+	height:100%;
+	float:left;
+}
+#right{
+	width:70%;
+	height:100%;
+	float:left;
+	padding:0 20px;
+}
+#left h2{
+	float:left;
+	width:100%;
+	height:auto;
+	font-size:30px;
+	line-height:1.4;
+	font-weight:600;
+}
+.key{
+	width:100%;
+	height:30px;
+	text-align:center;
+	lineheight:1.4;
+	border:1px solid #aaa;
+	color:#711;
+	background:#ccc;
+	margin-top:3px;
+	margin-bottom:20px;
+}
+#bt{
+	width:100px;
+	height:30px;
+	background:#428BCA;
+	float:right;
+	font-size:15px;
+	color:#714;
+	line-height:1;
+	text-align:center;
+	border:1px solid #cc6297;
+}
+.value{
+	width:200px;
+	margin:0 auto;
+}
